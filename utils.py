@@ -1,6 +1,9 @@
 import numpy as np
 from scipy.integrate import quad
 import math
+import matplotlib.pyplot as plt
+from scipy.stats import erlang
+from scipy.optimize import minimize
 
 # Función distribución Erlang
 def erlang_pdf(x, lambda_, k):
