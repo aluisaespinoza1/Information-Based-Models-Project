@@ -9,6 +9,9 @@ from scipy.optimize import minimize
 def erlang_pdf(x, lambda_, k):
     return np.where(x < 0, 0, (lambda_**k * x**(k-1) * np.exp(-lambda_*x)) / math.factorial(k-1))
 
+def price_distribution(x):
+    return erlang(x,a=k, scale=1/lambda_)
+
 #Liquidity functions buy and sell
 
 #liquidity buy
