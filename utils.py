@@ -1,7 +1,6 @@
 import numpy as np
 from scipy.integrate import quad
 import math
-import matplotlib.pyplot as plt
 from scipy.optimize import minimize
 
 # Función distribución Erlang
@@ -35,9 +34,9 @@ def utility(params, S0, lambda_, k, price_min=10, price_max=33):
     
     # Expected losses  
     el_sell, _ = quad(lambda P: (B - P) * erlang_pdf(P, lambda_, k), 
-                      price_min, B)
+                      price_min, B) #integral from 10 to bid price
     el_buy, _ = quad(lambda P: (P - A) * erlang_pdf(P, lambda_, k), 
-                     A, price_max)
+                     A, price_max) #integral from ask price to 33
     
     loss = prob_LS_bid * el_sell + prob_LB_ask * el_buy
     
